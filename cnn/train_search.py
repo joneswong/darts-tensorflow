@@ -117,7 +117,7 @@ def main():
                                CLASS_NUM, args.layers)
 
     lr = tf.train.cosine_decay(args.learning_rate, global_step,
-                               50000 / args.batch_size * args.epochs,
+                               images["train"].shape[0] / args.batch_size * args.epochs,
                                args.learning_rate_min)
 
     accuracy = tf.reduce_mean(
